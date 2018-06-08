@@ -27,4 +27,4 @@ Alguns apps e dispositivos usam tecnologias de login menos seguras, o que torna 
 Permitir aplicativos menos seguros: ATIVADA
 
 __DEPENDÊNCIAS PARA RODAR O PROGRAMA__   
-  -python3-tk: Para instalar no linux use o comando (_sudo apt-get install python3-tk_)
+  - python3-tk: Para instalar no linux use o comando (_sudo apt-get install python3-tk_)
