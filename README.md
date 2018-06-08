@@ -20,9 +20,6 @@ Exemplo:
 __credenciais.exemplo.py__ deve ser duplicado e renomeado para __credenciais.py__.
 Em seguida deve-se preencher os campos requeridos.
 
-Alguns apps e dispositivos usam tecnologias de login menos seguras, o que torna sua conta mais vulnerável. É possível desativar o acesso a esses apps, o que recomendamos, ou ativar o acesso, se quiser usá-los apesar dos riscos. Saiba mais
-Permitir aplicativos menos seguros: ATIVADA
-
 __DEPENDÊNCIAS PARA RODAR O PROGRAMA:__  
   - __python3__: Para instalar no linux use o comando (_sudo apt install python3_);
   - __python3-tk__: Para instalar no linux use o comando (_sudo apt-get install python3-tk_);
