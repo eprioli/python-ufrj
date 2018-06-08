@@ -1,4 +1,8 @@
 # python-ufrj
+# coding: utf-8
+# autor: Eduardo Prioli Novaes
+# Sexta-feira, Junho 8 de 2018
+
 Aula de Python com o professor Igor
 
 Trabalho a ser feito:

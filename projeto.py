@@ -1,4 +1,6 @@
 # coding: utf-8
+# autor: Eduardo Prioli Novaes
+# Sexta-feira, Junho 8 de 2018
 
 # Esse projeto é para envio de emails com Python
 # Vai ler de um arquivo txt os endereços de emails e irá enviar um email de

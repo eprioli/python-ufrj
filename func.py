@@ -1,6 +1,8 @@
-# Este programa vai abrir uma planilha, ler a primeira coluna e salvar a media, mediana e o numero de linhas em um arquivo txt
+# coding: utf-8
+# autor: Eduardo Prioli Novaes
+# Sexta-feira, Junho 8 de 2018
+
 from tkinter import filedialog, Tk
-from time import sleep
 import smtplib
 
 def pede_arquivo():
