@@ -25,3 +25,6 @@ https://www.google.com/settings/security/lesssecureapps?hl=pt-BR
 
 Alguns apps e dispositivos usam tecnologias de login menos seguras, o que torna sua conta mais vulnerável. É possível desativar o acesso a esses apps, o que recomendamos, ou ativar o acesso, se quiser usá-los apesar dos riscos. Saiba mais
 Permitir aplicativos menos seguros: ATIVADA
+
+__DEPENDÊNCIAS PARA RODAR O PROGRAMA__
+  -python3-tk: Para instalar no linux use o comando (_sudo apt-get install python3-tk_)
