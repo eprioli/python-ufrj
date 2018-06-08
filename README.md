@@ -26,9 +26,8 @@ Permitir aplicativos menos seguros: ATIVADA
 __DEPENDÊNCIAS PARA RODAR O PROGRAMA:__  
   - __python3__: Para instalar no linux use o comando (_sudo apt install python3_);
   - __python3-tk__: Para instalar no linux use o comando (_sudo apt-get install python3-tk_);
-  - E para terminar entre nesta página ative a opção Aplicativos menos seguros [https://www.google.com/settings/security/lesssecureapps?hl=pt-BR]CLIQUE AQUI.
+  - E para terminar entre nesta página ative a opção Aplicativos menos seguros: [__CLIQUE AQUI!__](https://www.google.com/settings/security/lesssecureapps?hl=pt-BR "Clique e acesse agora!")
 
-  
 __PARA RODAR O PROGRAMA, FAÇA ASSIM:__   
   - Faça as configurações necessárias nos arquivos: __credenciais.py__ e __repositorio.txt__;
   - Vá até a raiz de seu projeto (pasta onde ele se encontra) pela linha de comando (terminal) e digite:   
