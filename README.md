@@ -7,7 +7,7 @@ Aula de Python com o professor Igor
 
 Trabalho a ser feito:
 
-Dado um arquivo __repositorio.txt__ contendo uma listagem de e-mails, eu desejo que o meu programa em Python seja capaz de enviar notificação para cada e-mail da lista.
+Dado um arquivo __repositorio.csv__ contendo uma listagem de nomes,e-mails e token, eu desejo que o meu programa em Python seja capaz de enviar notificação para cada e-mail da lista.
 
 Todas as funções que irei criar ou de terceiros estarão no arquivo __func.py__.
 
