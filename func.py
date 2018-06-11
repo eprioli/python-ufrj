@@ -2,7 +2,7 @@
 # autor: Eduardo Prioli Novaes
 # Sexta-feira, Junho 8 de 2018
 import smtplib
-
+import csv
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from tkinter import filedialog, Tk
@@ -22,14 +22,21 @@ def abre_arquivo(nome_arquivo):
             lista_linhas.append(linha.strip())
     return lista_linhas
 
+
+
+def abre_arquivoCVS(nome_arquivo):
+    lista_linhas = []
+    with open(nome_arquivo) as File:
+        reader = csv.reader(File, delimiter=',', quotechar=',',quoting=csv.QUOTE_MINIMAL)
+        for row in reader:
+            print(row)
+    return lista_linhas
+
 def bootstrapServer():
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.starttls()
-
     # server = smtplib.SMTP('localhost')
     return server
-
-return server
 
 def enviar_email(destinatario, remetente, senha, server):
     # Informações da mensagem  - o tipo correto do MIME é multipart/alternative.

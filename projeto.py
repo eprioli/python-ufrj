@@ -23,7 +23,7 @@ senha        = getSenha()
 
 def main():
     nome_arquivo = pede_arquivo()
-    lista_emails = abre_arquivo(nome_arquivo)
+    lista_emails = abre_arquivoCVS(nome_arquivo)
     server = bootstrapServer()
     for destinatario in lista_emails:
         enviar_email(destinatario, remetente, senha, server)

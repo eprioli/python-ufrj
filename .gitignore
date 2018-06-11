@@ -6,6 +6,7 @@ __pycache__/
 # Arquivos de configuração e credenciais
 credenciais.py
 repositorio.txt
+repositorio.cvs
 
 # C extensions
 *.so
