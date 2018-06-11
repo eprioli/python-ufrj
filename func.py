@@ -11,7 +11,7 @@ import smtplib
 def pede_arquivo():
     # retorna o caminho para um arquivo definido pelo usuario
     root = Tk()
-    # root.withdraw() '''para fechar a janela que no windows abre vazia'''
+    root.withdraw() #para fechar a janela que no windows abre vazia
     return filedialog.askopenfilename()
 
 def abre_arquivo(nome_arquivo):
@@ -29,7 +29,7 @@ def abre_arquivoCVS(nome_arquivo):
     with open(nome_arquivo) as File:
         reader = csv.reader(File, delimiter=',', quotechar=',',quoting=csv.QUOTE_MINIMAL)
         for row in reader:
-            print(row)
+            lista_linhas.append(row)
     return lista_linhas
 
 def bootstrapServer():
@@ -38,22 +38,31 @@ def bootstrapServer():
     # server = smtplib.SMTP('localhost')
     return server
 
-def enviar_email(destinatario, remetente, senha, server):
+def enviar_email(dados, remetente, senha, server):
+    nome_destinatario = dados[0]
+    email_destinatario = dados[1]
+    token = dados[2]
+
     # Informações da mensagem  - o tipo correto do MIME é multipart/alternative.
     msg = MIMEMultipart('alternative')
     msg['Subject'] = "Notificação para se cadastrar no Eduroam da UFRJ"
     msg['From'] = remetente
-    msg['To'] = destinatario
+    msg['To'] = email_destinatario
+    link = "<a href=http://localhost:8000/eduroam/hit" + token +">Clique aqui para se cadastrar no Eduroam</a> "
+    simpleLink = "<a href=http://localhost:8000/eduroam/>Clique aqui para inserir o seu token</a> "
 
     # Cria o corpo da mensagem.
-    text = "Usuário!\nPor favor clique no link abaixo para registrar sua senha para poder usar o Eduroam da UFRJ\nhttp://localhost:8000/eduroam/hit887FDD2FFD8E9FC270217AECC89D25EC76331118\n"
+    text = nome_destinatario + "\nPor favor, Use o link abaixo para cadastrar-se no Eduroam da UFRJ\n" + link
     html = """\
     <html>
         <head></head>
         <body>
-            <p>Usuário,<br>
-            Use o link abaixo para conectar-se ao nosso site para cadastrar sua senha no Eduroam.<br>
-            Aqui está o link do  <a href="http://localhost:8000/eduroam/hit887FDD2FFD8E9FC270217AECC89D25EC76331118">Eduroam</a> para cadastrar a sua senha.
+            <p>""" + nome_destinatario + """, <br><br><br>
+            Use o link abaixo para cadastrar-se no Eduroam da UFRJ.<br>
+            <br>""" + link + """<br><br><br>
+            Caso não consiga clicar no link acima, por favor use o token e a uri abaixo para acessar sua página de cadastro.
+            <br>""" + simpleLink + """<br>
+            <br>Token: """ + token + """<br><br><br>
             </p>
         </body>
     </html>
@@ -63,4 +72,4 @@ def enviar_email(destinatario, remetente, senha, server):
     msg.attach(part1)
     msg.attach(part2)
     server.login(remetente,senha)
-    server.sendmail(remetente, destinatario, msg.as_string())
+    server.sendmail(remetente, email_destinatario, msg.as_string())

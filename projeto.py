@@ -25,10 +25,21 @@ def main():
     nome_arquivo = pede_arquivo()
     lista_emails = abre_arquivoCVS(nome_arquivo)
     server = bootstrapServer()
-    for destinatario in lista_emails:
-        enviar_email(destinatario, remetente, senha, server)
+    print('Inicio do envio de e-mails')
+    print('')
+    print('')
+
+    for dados in lista_emails:
+        try:
+            enviar_email(dados, remetente, senha, server)
+            print("Enviado - OK ***********" + dados[0] + " - " + dados[1])
+        except Exception as e:
+            print("Enviado - ERRO *********" + dados[0] + " - " + dados[1])
     server.quit()
-    print('Foi enviado notificação via email para os seguintes endereços eletrônicos:')
-    print(lista_emails)
+    
+    print('')
+    print('')
+    print('Fim do envio de e-mails')
+
 
 main()
