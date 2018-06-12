@@ -14,12 +14,6 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from func import *
-from credenciais import *
-
-# Credenciais
-remetente    = getLogin()
-senha        = getSenha()
-
 
 def main():
     nome_arquivo = pede_arquivo()
@@ -36,7 +30,7 @@ def main():
         except Exception as e:
             print("Enviado - ERRO *********" + dados[0] + " - " + dados[1])
     server.quit()
-    
+
     print('')
     print('')
     print('Fim do envio de e-mails')

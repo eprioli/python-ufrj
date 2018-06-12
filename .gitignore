@@ -5,7 +5,6 @@ __pycache__/
 
 # Arquivos de configuração e credenciais
 credenciais.py
-repositorio.txt
 repositorio.csv
 repositorioTodos.csv
 

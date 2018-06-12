@@ -6,7 +6,12 @@ import csv
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from tkinter import filedialog, Tk
-import smtplib
+from credenciais import *
+
+# Credenciais
+remetente    = getLogin()
+senha        = getSenha()
+server       = getServidor()
 
 def pede_arquivo():
     # retorna o caminho para um arquivo definido pelo usuario
@@ -22,8 +27,6 @@ def abre_arquivo(nome_arquivo):
             lista_linhas.append(linha.strip())
     return lista_linhas
 
-
-
 def abre_arquivoCVS(nome_arquivo):
     lista_linhas = []
     with open(nome_arquivo) as File:
@@ -33,9 +36,8 @@ def abre_arquivoCVS(nome_arquivo):
     return lista_linhas
 
 def bootstrapServer():
-    server = smtplib.SMTP('smtp.gmail.com:587')
-    server.starttls()
-    # server = smtplib.SMTP('localhost')
+    # server = smtplib.SMTP('smtp.gmail.com:587')
+    # server.starttls()
     return server
 
 def enviar_email(dados, remetente, senha, server):
@@ -46,10 +48,10 @@ def enviar_email(dados, remetente, senha, server):
     # Informações da mensagem  - o tipo correto do MIME é multipart/alternative.
     msg = MIMEMultipart('alternative')
     msg['Subject'] = "Notificação para se cadastrar no Eduroam da UFRJ"
-    msg['From'] = remetente
+    # msg['From'] = remetente
     msg['To'] = email_destinatario
     link = "<a href=http://localhost:8000/eduroam/hit" + token +">Clique aqui para se cadastrar no Eduroam</a> "
-    simpleLink = "<a href=http://localhost:8000/eduroam/>Clique aqui para inserir o seu token</a> "
+    # simpleLink = "<a href=http://localhost:8000/eduroam/>http://localhost:8000/eduroam/</a> "
 
     # Cria o corpo da mensagem.
     text = nome_destinatario + "\nPor favor, Use o link abaixo para cadastrar-se no Eduroam da UFRJ\n" + link
@@ -61,8 +63,9 @@ def enviar_email(dados, remetente, senha, server):
             Use o link abaixo para cadastrar-se no Eduroam da UFRJ.<br>
             <br>""" + link + """<br><br><br>
             Caso não consiga clicar no link acima, por favor use o token e a uri abaixo para acessar sua página de cadastro.
-            <br>""" + simpleLink + """<br>
-            <br>Token: """ + token + """<br><br><br>
+            <br><br>http://localhost:8000/eduroam/<br><br>""" + token + """<br><br>
+            Cordialmente,<br><br>
+            Equipe do CISI<br><br>
             </p>
         </body>
     </html>
@@ -71,5 +74,5 @@ def enviar_email(dados, remetente, senha, server):
     part2 = MIMEText(html, 'html')
     msg.attach(part1)
     msg.attach(part2)
-    server.login(remetente,senha)
+    # server.login(remetente,senha)
     server.sendmail(remetente, email_destinatario, msg.as_string())
